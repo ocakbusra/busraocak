@@ -110,7 +110,6 @@ function App() {
         <div className="hero-editorial">
           <div className="hero-portrait">
             <img src={photos.hero} alt="Siyah beyaz yol manzarası" />
-            <span className="image-caption">bir yerlerde<br />burayla başka bir yer arasında — 2026</span>
           </div>
           <div className="hero-editorial-copy">
             <p className="hero-mini-label">Merhaba,</p>
