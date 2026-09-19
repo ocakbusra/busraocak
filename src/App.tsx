@@ -50,126 +50,10 @@ const posts = [
   },
 ];
 
-const monthlyTracks = [
-  { artist: "Durand Jones & The Indications", title: "Don't You Know", time: "03:20", url: "https://open.spotify.com/track/0jecTSpHjOy5CyqEdfod5c?si=1248e24b9ba0443f" },
-  { artist: "Rikas", title: "Last Train to London", time: "02:59", url: "https://open.spotify.com/track/5fewYZz1bCsj72vjSwSxzq?si=98df79669bfa40e6" },
-  { artist: "Pale Jay", title: "Quadris De Ouro", time: "03:30", url: "https://open.spotify.com/track/3BB5k0EArimPyCD1VYcFzR?si=df06742e4ee84843" },
-  { artist: "Medité", title: "The Times We Had", time: "01:49", url: "https://open.spotify.com/track/4zF8dpzhpxF3g3v780QEUf?si=3728ab1c60dc4eea" },
-];
-
 const hermanosTracks = [
   { artist: "Hermanos Gutiérrez", title: "L.a. Venganza", time: "02:51", url: "https://open.spotify.com/track/1B8HAaWutPZTrJOhcztZms?si=7f546f92017b4a18" },
   { artist: "Hermanos Gutiérrez", title: "Los Andes", time: "03:31", url: "https://open.spotify.com/track/3HGlaKMMFsTEaat5TZ9vJF?si=3a82cb4c1ba64c6c" },
 ];
-
-const starArtists = [
-  { number: "01", name: "Hermanos Gutiérrez", note: "yolun, gün batımının ve uzak bir şehrin müziği" },
-  { number: "02", name: "Big Thief", note: "çıplak, dürüst ve biraz dağınık" },
-  { number: "03", name: "Radiohead", note: "zihnin içinden geçen elektrik" },
-  { number: "04", name: "Nick Drake", note: "sessizliğin içindeki en iyi eşlik" },
-];
-
-const archiveMonths = [
-  {
-    month: "Ağustos 2026",
-    note: "geceye karışan şarkılar",
-    tracks: [
-      { artist: "Hermanos Gutiérrez", title: "Mesa Redonda", time: "02:55", url: "https://open.spotify.com/track/4MyceticLjPfqzkjzgFSgq?si=8d029d8a8bef43c1" },
-      { artist: "Big Thief", title: "Change", time: "04:44", url: "https://open.spotify.com/track/3HFBqhotJeEKHJzMEW31jZ" },
-      { artist: "Radiohead", title: "Weird Fishes / Arpeggi", time: "05:18", url: "https://open.spotify.com/track/0hOxNpxQZywAGQ0yaPfpod" },
-    ],
-  },
-  {
-    month: "Temmuz 2026",
-    note: "yavaşlayan günlere eşlik edenler",
-    tracks: [
-      { artist: "Nick Drake", title: "Pink Moon", time: "02:04", url: "https://open.spotify.com/track/16qzGrIMWoxerw2gnW0zuv" },
-      { artist: "FKA twigs", title: "Cellophane", time: "03:24", url: "https://open.spotify.com/track/3VwZqgfrM3xb1usuLprkTu" },
-    ],
-  },
-];
-
-function MusicPage() {
-  const [needleOn, setNeedleOn] = useState(false);
-
-  const placeNeedle = () => setNeedleOn(true);
-
-  return (
-    <main className="music-page-shell">
-      <SiteHeader active="music" />
-
-      <section className="music-page-hero">
-        <div className="music-page-heading">
-          <p className="hero-kicker"><span className="red-dot" /> KİŞİSEL ARŞİV / MÜZİK</p>
-          <h1>müzik<br /><i>odası.</i></h1>
-          <p>Dinlediğim, dönüp dolaşıp bulduğum ve bazı günleri hatırlatan şarkıların küçük arşivi.</p>
-        </div>
-        <button className={needleOn ? "vinyl-player is-playing" : "vinyl-player"} onClick={placeNeedle} aria-label="Eylül seçkisini sayfa içinde dinle">
-          <span className="vinyl-disc"><span className="vinyl-label">B.O.</span></span>
-          <span className="vinyl-needle"><span className="needle-arm" /><span className="needle-head" /></span>
-          <span className="vinyl-caption">iğneyi tak / eylül seçkisini aç</span>
-        </button>
-      </section>
-      <section className="music-page-section music-stars">
-        <div className="music-page-section-top"><span className="section-label"><span className="red-line" /> 01 / YILDIZLAR</span><span className="section-meta">sınırlı sayıda / her zaman</span></div>
-        <div className="music-section-title-row">
-          <h2>dinlemeyi en<br /><i>sevdiklerim.</i></h2>
-          <p>Hayatımın farklı dönemlerine eşlik eden, her dönüşte başka bir yerini duyduğum sanatçılar.</p>
-        </div>
-        <div className="artist-grid">
-          {starArtists.map((artist) => (
-            <article className="artist-card" key={artist.number}>
-              <span>{artist.number}</span>
-              <h3>{artist.name}</h3>
-              <p>{artist.note}</p>
-              <i>★</i>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="music-page-section music-monthly" id="music-monthly">
-        <div className="music-page-section-top"><span className="section-label"><span className="red-line" /> 02 / BU AYIN YILDIZLARI</span><span className="section-meta">eylül 2026</span></div>
-        <div className="music-monthly-layout">
-          <div>
-            <h2>bu ay<br /><i>neleri dinliyordum?</i></h2>
-            <p>Ayın içinden seçip sakladığım dört parça. İğneyi yerleştirdiğinde ilk şarkı başlar; gerisini listeden seçebilirsin.</p>
-          </div>
-          <div className="spotify-track-list music-page-track-list">
-            {monthlyTracks.map((track, index) => (
-              <article className="spotify-track-card" key={track.title}>
-                <div className="spotify-track-card-meta"><span>0{index + 1}</span><strong>{track.title}</strong><small>{track.artist} / {track.time}</small></div>
-                <SpotifyTrackEmbed track={track} />
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="music-page-section music-archive">
-        <div className="music-page-section-top"><span className="section-label"><span className="red-line" /> 03 / ARŞİV</span><span className="section-meta">geçmiş aylar</span></div>
-        <div className="archive-heading"><h2>geçmişte<br /><i>ne vardı?</i></h2><p>Her ay değişen ama hiçbir zaman tamamen kaybolmayan küçük listeler.</p></div>
-        <div className="archive-list">
-          {archiveMonths.map((archive) => (
-            <article className="archive-month" key={archive.month}>
-              <div className="archive-month-heading"><h3>{archive.month}</h3><p>{archive.note}</p></div>
-              <div className="archive-tracks">
-                {archive.tracks.map((track, index) => (
-                  <article className="archive-embed-track" key={track.title}>
-                    <div className="archive-track-meta"><span>{String(index + 1).padStart(2, "0")}</span><strong>{track.title}</strong><em>{track.artist}</em><small>{track.time}</small></div>
-                    <SpotifyTrackEmbed track={track} />
-                  </article>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <footer className="music-page-footer"><a href="#top">ana sayfaya dön <ArrowUpRight size={15} /></a><span>müzik, yolun diğer adı.</span></footer>
-    </main>
-  );
-}
 
 function SoundtrackFilm() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -212,12 +96,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (currentHash && currentHash !== "#music") {
+    if (currentHash) {
       requestAnimationFrame(() => document.getElementById(currentHash.slice(1))?.scrollIntoView());
     }
   }, [currentHash]);
-
-  if (currentHash === "#music" || currentHash.startsWith("#music-")) return <MusicPage />;
 
   return (
     <main className="site-shell">
@@ -312,7 +194,6 @@ function App() {
                 <SpotifyTrackEmbed track={track} />
               </article>
             ))}
-            <a className="monthly-note-link" href="#music-monthly">Her mevsimin, her ayın bir müziği oluyor. Bu ayın seçkisini görmek için tıkla. <ArrowUpRight size={14} /></a>
           </div>
         </div>
       </section>

@@ -2,11 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import headerLogo from "../assets/logo-busra-ocak.png";
 
-type SiteHeaderProps = {
-  active?: "music";
-};
-
-export function SiteHeader({ active }: SiteHeaderProps) {
+export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
   const isSubpage = window.location.pathname !== "/";
@@ -20,7 +16,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
       <nav className={menuOpen ? "nav-links is-open" : "nav-links"}>
         <a href={sectionHref("#about")} onClick={closeMenu}>hakkımda</a>
         <a href={sectionHref("#journal")} onClick={closeMenu}>YAZILARIM</a>
-        <a href={sectionHref("#music")} className={active === "music" ? "is-current" : undefined} onClick={closeMenu}>MÜZİK</a>
+        <a href={sectionHref("#soundtrack")} onClick={closeMenu}>MÜZİK</a>
         <a href={sectionHref("#shelf")} onClick={closeMenu}>KİTAPLIĞIM</a>
         <a href={sectionHref("#contact")} onClick={closeMenu}>İLETİŞİM</a>
       </nav>
