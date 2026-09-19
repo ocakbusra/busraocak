@@ -2,21 +2,19 @@ import { useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight,
   Headphones,
-  Menu,
   MoveDown,
   Quote,
-  X,
 } from "lucide-react";
 import "./App.css";
 import heroBusra from "./assets/hero-busra-new.png";
 import signatureBusra from "./assets/signature-busra.png";
-import headerLogo from "./assets/logo-busra-ocak.png";
 import aboutChild from "./assets/about-child.png";
 import aboutPortrait from "./assets/about-portrait.jpg";
 import mindfulnessBook from "./assets/mindfulness-book.png";
 import { SpotifyTrackEmbed } from "./components/SpotifyTrackEmbed";
 import { LibraryPage } from "./library/LibraryPage";
 import { BookDetailPage } from "./library/BookDetailPage";
+import { SiteHeader } from "./components/SiteHeader";
 
 const photos = {
   hero: heroBusra,
@@ -94,29 +92,13 @@ const archiveMonths = [
 ];
 
 function MusicPage() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [needleOn, setNeedleOn] = useState(false);
 
-  const closeMenu = () => setMenuOpen(false);
   const placeNeedle = () => setNeedleOn(true);
 
   return (
     <main className="music-page-shell">
-      <header className="topbar">
-        <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Büşra Ocak ana sayfa">
-          <img className="header-logo" src={headerLogo} alt="Büşra Ocak" />
-        </a>
-        <nav className={menuOpen ? "nav-links is-open" : "nav-links"}>
-          <a href="#about" onClick={closeMenu}>hakkımda</a>
-          <a href="#journal" onClick={closeMenu}>YAZILARIM</a>
-          <a href="#music" className="is-current" onClick={closeMenu}>MÜZİK</a>
-          <a href="/kitapligim" onClick={closeMenu}>KİTAPLIĞIM</a>
-          <a href="#contact" onClick={closeMenu}>İLETİŞİM</a>
-        </nav>
-        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </header>
+      <SiteHeader active="music" />
 
       <section className="music-page-hero">
         <div className="music-page-heading">
@@ -223,8 +205,8 @@ function SoundtrackFilm() {
 }
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState(() => window.location.hash);
+  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
 
   useEffect(() => {
     const onHashChange = () => setCurrentHash(window.location.hash);
@@ -238,30 +220,14 @@ function App() {
     }
   }, [currentHash]);
 
-  if (window.location.pathname === "/kitapligim") return <LibraryPage />;
-  if (window.location.pathname.startsWith("/book/")) return <BookDetailPage id={decodeURIComponent(window.location.pathname.slice(6))} />;
+  if (pathname === "/kitapligim") return <LibraryPage />;
+  if (pathname.startsWith("/book/")) return <BookDetailPage id={decodeURIComponent(pathname.slice(6))} />;
 
   if (currentHash === "#music" || currentHash.startsWith("#music-")) return <MusicPage />;
 
-  const closeMenu = () => setMenuOpen(false);
-
   return (
     <main className="site-shell">
-      <header className="topbar">
-        <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Büşra Ocak ana sayfa">
-          <img className="header-logo" src={headerLogo} alt="Büşra Ocak" />
-        </a>
-        <nav className={menuOpen ? "nav-links is-open" : "nav-links"}>
-          <a href="#about" onClick={closeMenu}>hakkımda</a>
-          <a href="#journal" onClick={closeMenu}>YAZILARIM</a>
-          <a href="#music" onClick={closeMenu}>MÜZİK</a>
-          <a href="/kitapligim" onClick={closeMenu}>KİTAPLIĞIM</a>
-          <a href="#contact" onClick={closeMenu}>İLETİŞİM</a>
-        </nav>
-        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </header>
+      <SiteHeader />
 
       <div id="top" className="hero-section">
         <div className="hero-kicker"><span className="red-dot" /> kişisel arşiv / no. 001</div>

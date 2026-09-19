@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import "./library.css";
 import { libraryConfig } from "./siteConfig";
-import { LibraryHeader } from "./components/LibraryHeader";
 import { BookPile } from "./components/BookPile";
+import { SiteHeader } from "../components/SiteHeader";
 
 export function LibraryPage() {
   useEffect(() => {
@@ -13,7 +13,7 @@ export function LibraryPage() {
 
   return (
     <main className="library-page">
-      <LibraryHeader />
+      <SiteHeader active="library" />
       <p className="library-intro">{libraryConfig.introText}</p>
       <BookPile />
     </main>
