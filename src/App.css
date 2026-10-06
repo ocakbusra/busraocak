@@ -196,7 +196,7 @@ h2 { font: 8vw/.82 var(--display); letter-spacing: -.01em; text-transform: upper
   .section-meta { text-align: right; line-height: 1.4; }
   .manifesto-body, .journal-heading, .soundtrack-layout, .shelf-grid, .footer-main { display: block; margin-left: 0; margin-right: 0; }
   .about-intro { display: block; margin: 38px 0 48px 7%; }
-  .about-title h2 { font-size: 21vw; }
+  .about-title h2 { font-size: clamp(70px, 18vw, 120px); }
   .about-number { left: -23px; top: 8px; font-size: 8px; }
   .about-copy { margin: 34px 0 0 20%; max-width: 275px; }
   .about-gallery { grid-template-columns: 1fr .7fr; gap: 16px; margin: 0; }
