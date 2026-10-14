@@ -30,7 +30,7 @@ const posts = [
     number: "01",
     category: "SUBSTACK / KISA YAZI",
     title: "Herkesin Kendini Duymaktan Sağır Olduğu Bir Dünyada Başkasını Dinlemek Hakkında",
-    text: "Başkalarını gerçekten dinleyebilmek, önce kendi sesimizi biraz kısmayı gerektiriyor.",
+    text: "Zihnin gürültüsünü susturup başkasını can kulağıyla dinlemek; anlamayı, anlaşılmanın önüne koyarak birbirimize ve hayatın seslerine açılmak üzerine.",
     image: photos.sea,
     url: "https://substack.com/@busraocak/p-205030300?utm_source=profile&utm_medium=reader2",
   },
