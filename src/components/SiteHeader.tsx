@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import headerLogo from "../assets/logo-busra-ocak.png";
+import headerLogo from "../assets/logo-busra-ocak-400.jpg";
 
 type SiteHeaderProps = {
   active?: "music" | "library";
@@ -15,7 +15,7 @@ export function SiteHeader({ active }: SiteHeaderProps) {
   return (
     <header className="topbar">
       <a className="wordmark" href={isSubpage ? "/#top" : "#top"} onClick={closeMenu} aria-label="Büşra Ocak ana sayfa">
-        <img className="header-logo" src={headerLogo} alt="Büşra Ocak" />
+        <img className="header-logo" src={headerLogo} width="400" height="307" decoding="async" alt="Büşra Ocak" />
       </a>
       <nav className={menuOpen ? "nav-links is-open" : "nav-links"}>
         <a href={sectionHref("#about")} onClick={closeMenu}>hakkımda</a>

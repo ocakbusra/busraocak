@@ -6,11 +6,12 @@ import {
   Quote,
 } from "lucide-react";
 import "./App.css";
-import heroBusra from "./assets/hero-busra-new.png";
+import heroBusra from "./assets/hero-busra-new-1089.jpg";
+import heroBusraMobile from "./assets/hero-busra-new-640.jpg";
 import signatureBusra from "./assets/signature-busra.png";
-import aboutChild from "./assets/about-child.png";
-import aboutPortrait from "./assets/about-portrait.jpg";
-import mindfulnessBook from "./assets/mindfulness-book.png";
+import aboutChild from "./assets/about-child-480.jpg";
+import aboutPortrait from "./assets/about-portrait-720.jpg";
+import mindfulnessBook from "./assets/mindfulness-book-720.jpg";
 import { SpotifyTrackEmbed } from "./components/SpotifyTrackEmbed";
 import { LibraryPage } from "./library/LibraryPage";
 import { BookDetailPage } from "./library/BookDetailPage";
@@ -233,7 +234,16 @@ function App() {
         <div className="hero-kicker"><span className="red-dot" /> kişisel arşiv / no. 001</div>
         <div className="hero-editorial">
           <div className="hero-portrait">
-            <img src={photos.hero} alt="Siyah beyaz yol manzarası" />
+            <img
+              src={photos.hero}
+              srcSet={`${heroBusraMobile} 640w, ${heroBusra} 1089w`}
+              sizes="(max-width: 760px) 88vw, (max-width: 1440px) 44vw, 635px"
+              width="1089"
+              height="1444"
+              fetchPriority="high"
+              decoding="async"
+              alt="Siyah beyaz yol manzarası"
+            />
             <span className="image-caption">bir yerlerde<br />burayla başka bir yer arasında — 2026</span>
           </div>
           <div className="hero-editorial-copy">
@@ -241,7 +251,7 @@ function App() {
             <h1>ben<br /><em>Büşra</em></h1>
             <p className="hero-lead">Kaybolup gitmesini istemediklerime burada küçük bir yer açıyorum.</p>
             <p className="hero-body">Altı çizilmiş cümleler, tekrar tekrar dinlenen şarkılar ve günün içinden akılda kalan küçük anlar. Hepsi burada, biraz daha uzun kalsın diye.</p>
-            <img className="hero-signature-image" src={signatureBusra} alt="Büşra Ocak imzası" />
+            <img className="hero-signature-image" src={signatureBusra} width="570" height="438" decoding="async" alt="Büşra Ocak imzası" />
           </div>
         </div>
         <div className="hero-side-note"><span>keşfetmek için kaydır</span><MoveDown size={16} /></div>
@@ -264,9 +274,9 @@ function App() {
           </div>
         </div>
         <div className="about-gallery">
-          <div className="about-gallery-main"><img src={photos.portrait} alt="Siyah beyaz portre" /><span>25.</span></div>
+          <div className="about-gallery-main"><img src={photos.portrait} width="720" height="960" loading="lazy" decoding="async" alt="Siyah beyaz portre" /><span>25.</span></div>
           <div className="about-gallery-middle"><span className="vertical-text">Dünden / Bugüne</span><span className="about-gallery-mark">/ 02</span></div>
-          <div className="about-gallery-small"><img src={aboutChild} alt="Çocukluk fotoğrafı" /><span>7.</span></div>
+          <div className="about-gallery-small"><img src={aboutChild} width="480" height="480" loading="lazy" decoding="async" alt="Çocukluk fotoğrafı" /><span>7.</span></div>
         </div>
       </section>
 
@@ -283,7 +293,7 @@ function App() {
           {posts.map((post) => (
             <article className="post-card" key={post.number}>
               <div className="post-number">{post.number}</div>
-              <div className="post-image"><img src={post.image} alt="" /></div>
+              <div className="post-image"><img src={post.image} loading="lazy" decoding="async" alt="" /></div>
               <div className="post-content">
                 <p className="eyebrow">{post.category}</p>
                 <h3>{post.title}</h3>
@@ -326,7 +336,7 @@ function App() {
       <section className="shelf section-line" id="shelf">
         <div className="section-label"><span className="red-line" /> 05 / KİTAPLIK</div>
         <div className="shelf-grid">
-          <div className="shelf-image"><img src={photos.book} alt="Masada açık bir kitap" /><span>şu an<br />okuyorum</span></div>
+          <div className="shelf-image"><img src={photos.book} width="720" height="789" loading="lazy" decoding="async" alt="Masada açık bir kitap" /><span>şu an<br />okuyorum</span></div>
           <div className="quote-block">
             <Quote size={32} strokeWidth={1.2} />
             <blockquote>“Der ki korkma...<br />Korkma!<br />Sev, hisset, bırak yaşam elinden tutsun.<br />Bırak yaşam seninle gerçekleşsin.”</blockquote>
