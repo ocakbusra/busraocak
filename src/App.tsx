@@ -36,7 +36,7 @@ const posts = [
     number: "02",
     category: "SUBSTACK / KISA YAZI",
     title: "Yapay Zekayı Çocukça Değerlendirmek",
-    text: "Yapay zekâya bakarken büyük iddialardan önce basit, çocukça sorular sormak.",
+    text: "Yapay zekâyı hataları yüzünden bütünüyle reddetmek yerine, onu hukukta muhakemeyi ve yorumu çeşitlendiren bir araç olarak kullanmak üzerine.",
     image: photos.record,
     url: "https://substack.com/@busraocak/p-190194506?utm_source=profile&utm_medium=reader2",
   },
