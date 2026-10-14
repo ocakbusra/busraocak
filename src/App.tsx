@@ -46,7 +46,7 @@ const posts = [
     number: "03",
     category: "SUBSTACK / KISA YAZI",
     title: "Yazmak",
-    text: "Düşünceleri bir yerde tutmanın, kendine dönmenin ve kelimelerle biraz daha uzun kalmanın yolları.",
+    text: "Yazmanın düşünceye beden, insana dayanıklılık ve yalnızlığa ortaklık kazandıran yaratıcı bir eylem oluşu; yazdıkça çoğalmak ve birlikte üretmek üzerine.",
     image: photos.chair,
     url: "https://substack.com/@busraocak/p-193876085?utm_source=profile&utm_medium=reader2",
   },
